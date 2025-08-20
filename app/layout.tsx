@@ -7,11 +7,11 @@ import Footer from "@/components/Footer";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "Agency — Inspired by ThinkWebHub",
-  description: "Modern web agency starter built with Next.js, Tailwind, and Framer Motion.",
+  title: "Indovate Technologies",
+  description: "your complete IT partner for digital success, offering web and app development, debugging, hosting, maintenance, SEO, ERP, and AI/LLM training.",
   openGraph: {
-    title: "Agency — Inspired by ThinkWebHub",
-    description: "Modern web agency starter built with Next.js, Tailwind, and Framer Motion.",
+    title: "Indovate Technologies",
+    description: "your complete IT partner for digital success, offering web and app development, debugging, hosting, maintenance, SEO, ERP, and AI/LLM training.",
     type: "website"
   }
 };
