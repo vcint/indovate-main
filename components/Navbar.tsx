@@ -1,0 +1,63 @@
+'use client';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { FaBolt, FaBars, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+
+export default function Navbar(){
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/contact', label: 'Contact' }
+  ];
+
+  return (
+    <header className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 shadow-sm' : 'bg-transparent'}`}>
+      <div className="container-tight flex items-center justify-between py-4">
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl md:text-2xl">
+          <img src="/Images/indovatelogo.png" alt="Logo" className="h-8 w-8 md:h-9 md:w-9" /> <span>Indovate Technologies</span>
+        </Link>
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map(l => (
+            <Link key={l.href} href={l.href} className="text-lg hover:text-brand-600 transition-colors">{l.label}</Link>
+          ))}
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <Link href="/contact" className="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">
+              Get Quote
+            </Link>
+          </motion.div>
+        </nav>
+        <button className="md:hidden" onClick={()=>setOpen(true)} aria-label="Open Menu"><FaBars /></button>
+      </div>
+      <AnimatePresence>
+        {open && (
+          <motion.aside initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 20 }} className="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl p-6">
+            <div className="flex items-center justify-between mb-6">
+              <span className="font-semibold text-lg">Menu</span>
+              <button onClick={()=>setOpen(false)} aria-label="Close Menu"><FaTimes /></button>
+            </div>
+            <div className="flex flex-col gap-4">
+              {links.map(l => (
+                <Link key={l.href} href={l.href} onClick={()=>setOpen(false)} className="py-2 text-base">{l.label}</Link>
+              ))}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                <Link href="/contact" onClick={()=>setOpen(false)} className="mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white text-center shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">Get Quote</Link>
+              </motion.div>
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
