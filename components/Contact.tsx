@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Contact(){
   const [status, setStatus] = useState<'idle'|'sending'|'sent'|'error'>('idle');
@@ -16,32 +17,77 @@ export default function Contact(){
   };
 
   return (
-    <div className="card p-8">
-      <h2 className="text-2xl font-bold">Let’s build something great</h2>
-      <p className="text-gray-600 mt-2">Tell us about your project and we’ll get back within 24 hours.</p>
-      <form onSubmit={onSubmit} className="mt-6 grid md:grid-cols-2 gap-4">
+    <motion.div
+      className="card p-8"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
+      <motion.h2
+        className="text-2xl font-bold"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >Let’s build something great</motion.h2>
+      <motion.p
+        className="text-gray-600 mt-2"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >Tell us about your project and we’ll get back within 24 hours.</motion.p>
+      <motion.form
+        onSubmit={onSubmit}
+        className="mt-6 grid md:grid-cols-2 gap-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <input required placeholder="Your name" className="rounded-xl border border-gray-300 px-4 py-3" />
         <input type="email" required placeholder="Email" className="rounded-xl border border-gray-300 px-4 py-3" />
         <input placeholder="Company" className="rounded-xl border border-gray-300 px-4 py-3 md:col-span-2" />
         <textarea required placeholder="Project details" rows={5} className="rounded-xl border border-gray-300 px-4 py-3 md:col-span-2" />
         <div className="md:col-span-2 flex items-center gap-3">
-          <button
+          <motion.button
+            type="submit"
             disabled={status==='sending' || status==='sent'}
             className="px-6 py-3 rounded-xl bg-brand-600 text-white disabled:opacity-60 shadow-md transition-transform focus:outline-none focus:ring-2 focus:ring-brand-400"
+            whileHover={{ scale: status==='idle' ? 1.05 : 1, boxShadow: status==='idle' ? '0 4px 24px #f38c1740' : undefined }}
+            whileTap={{ scale: 0.97 }}
+            animate={status==='sent' ? { scale: [1, 1.15, 1], backgroundColor: '#22c55e' } : status==='error' ? { x: [0, -8, 8, -8, 8, 0] } : {}}
+            transition={{ duration: status==='sent' ? 0.5 : 0.3 }}
             style={{
               transform: status === 'sending' ? 'scale(0.97)' : undefined,
             }}
-            onMouseDown={e => e.currentTarget.style.transform = 'scale(0.97)'}
-            onMouseUp={e => e.currentTarget.style.transform = ''}
-            onMouseLeave={e => e.currentTarget.style.transform = ''}
             onFocus={e => e.currentTarget.style.boxShadow = '0 0 0 3px #f38c17'}
             onBlur={e => e.currentTarget.style.boxShadow = ''}
           >
-            {status==='sending' ? 'Sending…' : status==='sent' ? 'Sent ✔' : 'Send message'}
-          </button>
-          {status==='error' && <span className="text-red-600">Something went wrong. Try again.</span>}
+            <AnimatePresence mode="wait">
+              {status==='sending' ? (
+                <motion.span key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>Sending…</motion.span>
+              ) : status==='sent' ? (
+                <motion.span key="sent" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>Sent ✔</motion.span>
+              ) : (
+                <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>Send message</motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+          <AnimatePresence>
+            {status==='error' && (
+              <motion.span
+                className="text-red-600"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.3 }}
+              >Something went wrong. Try again.</motion.span>
+            )}
+          </AnimatePresence>
         </div>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 }

@@ -9,6 +9,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "jumpshare.com",
+      },
+
+      {
+        protocol: "https",
         hostname: "fonts.gstatic.com",
       },
     ],

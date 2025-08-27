@@ -23,16 +23,24 @@ export default function Navbar(){
   ];
 
   return (
-    <header className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 shadow-sm' : 'bg-transparent'}`}>
+    <motion.header
+      className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 shadow-sm' : 'bg-transparent'}`}
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
       <div className="container-tight flex items-center justify-between py-4">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl md:text-2xl">
-          <img src="/Images/indovatelogo.png" alt="Logo" className="h-8 w-8 md:h-9 md:w-9" /> <span>Indovate Technologies</span>
-        </Link>
+        <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.97 }}>
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl md:text-2xl">
+            <motion.img src="/Images/indovatelogo.png" alt="Logo" className="h-8 w-8 md:h-9 md:w-9" initial={false} animate={{ rotate: [0, 8, -8, 0] }} transition={{ repeat: 0, duration: 1.2, ease: 'easeInOut' }} />
+            <span>Indovate Technologies</span>
+          </Link>
+        </motion.div>
         <nav className="hidden md:flex items-center gap-8">
           {links.map(l => (
             <Link key={l.href} href={l.href} className="text-lg hover:text-brand-600 transition-colors">{l.label}</Link>
           ))}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+          <motion.div whileHover={{ scale: 1.09, boxShadow: '0 4px 24px #f38c1740' }} whileTap={{ scale: 0.97 }}>
             <Link href="/contact" className="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">
               Get Quote
             </Link>
@@ -43,21 +51,21 @@ export default function Navbar(){
       <AnimatePresence>
         {open && (
           <motion.aside initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 20 }} className="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl p-6">
-            <div className="flex items-center justify-between mb-6">
-              <span className="font-semibold text-lg">Menu</span>
-              <button onClick={()=>setOpen(false)} aria-label="Close Menu"><FaTimes /></button>
-            </div>
-            <div className="flex flex-col gap-4">
-              {links.map(l => (
-                <Link key={l.href} href={l.href} onClick={()=>setOpen(false)} className="py-2 text-base">{l.label}</Link>
-              ))}
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Link href="/contact" onClick={()=>setOpen(false)} className="mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white text-center shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">Get Quote</Link>
-              </motion.div>
-            </div>
-          </motion.aside>
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-semibold text-lg">Menu</span>
+                <button onClick={()=>setOpen(false)} aria-label="Close Menu"><FaTimes /></button>
+              </div>
+              <div className="flex flex-col gap-4">
+                {links.map(l => (
+                  <Link key={l.href} href={l.href} onClick={()=>setOpen(false)} className="py-2 text-base">{l.label}</Link>
+                ))}
+                <motion.div whileHover={{ scale: 1.09, boxShadow: '0 4px 24px #f38c1740' }} whileTap={{ scale: 0.97 }}>
+                  <Link href="/contact" onClick={()=>setOpen(false)} className="mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white text-center shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">Get Quote</Link>
+                </motion.div>
+              </div>
+            </motion.aside>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
