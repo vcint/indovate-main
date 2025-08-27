@@ -20,7 +20,6 @@ export default function Footer(){
         <div className="container-tight py-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
             <p className="text-sm text-gray-600">© {new Date().getFullYear()} Indovate Technologies Pvt Ltd. All rights reserved.</p>
-            <a href="mailto:sales@indovatetechnologies.com" className="text-sm text-brand-600 hover:underline">sales@indovatetechnologies.com</a>
           </div>
           <div className="flex items-center gap-4">
             {socials.map(({ Icon, href }) => (

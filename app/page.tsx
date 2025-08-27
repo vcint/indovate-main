@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
@@ -6,6 +6,7 @@ import ClientLogos from '@/components/ClientLogos';
 import Process from '@/components/Process';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
+
 
 export default function HomePage() {
   return (
