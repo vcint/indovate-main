@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 // Example client logos (replace with your own logo URLs in /public/logos or external links)
 const CLIENTS = [
-  { name: 'Client 1', img: '/images/Apisec_Logo.svg' },
-  { name: 'Client 2', img: '/images/artificio_logo.svg' },
-  { name: 'Client 3', img: '/images/Belsio_logo.svg' },
-  { name: 'Client 4', img: '/images/fluence_logo.svg' },
+  { name: 'Client 1', img: '/Images/Apisec_Logo.svg' },
+  { name: 'Client 2', img: '/Images/artificio_logo.svg' },
+  { name: 'Client 3', img: '/Images/Belsio_logo.svg' },
+  { name: 'Client 4', img: '/Images/fluence_logo.svg' },
 //   { name: 'Client 5', img: '/logos/client5.png' },
 //   { name: 'Client 6', img: '/logos/client6.png' },
 ];
