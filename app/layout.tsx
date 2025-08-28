@@ -35,6 +35,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.indovatetechnologies.com/" />
         <meta property="og:image" content="/Images/indovatelogo.png" />
+
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-640ZXWNRHC"></script>
+         <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-640ZXWNRHC');
+              `,
+            }}
+        />
+
       </head>
       <body className={`${poppins.className} bg-gradient-to-b from-white to-gray-50 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-950`}>
         <DarkModeToggle />

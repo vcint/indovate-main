@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { FaBolt, FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Navbar(){
+export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,7 +24,7 @@ export default function Navbar(){
 
   return (
     <motion.header
-  className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 dark:bg-gray-900/80 shadow-sm' : 'bg-transparent'}`}
+      className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 dark:bg-gray-900/80 shadow-sm' : 'bg-transparent'}`}
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -36,7 +36,7 @@ export default function Navbar(){
             <span>Indovate Technologies</span>
           </Link>
         </motion.div>
-  <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8">
           {links.map(l => (
             <Link key={l.href} href={l.href} className="text-lg text-gray-800 dark:text-gray-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">{l.label}</Link>
           ))}
@@ -46,24 +46,49 @@ export default function Navbar(){
             </Link>
           </motion.div>
         </nav>
-        <button className="md:hidden" onClick={()=>setOpen(true)} aria-label="Open Menu"><FaBars /></button>
+        <button
+          className="md:hidden mr-[60px]"
+          onClick={() => setOpen(true)}
+          aria-label="Open Menu"
+        >
+          <FaBars />
+        </button>
       </div>
       <AnimatePresence>
         {open && (
-          <motion.aside initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 20 }} className="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl p-6">
+          <>
+            {/* Overlay */}
+            <motion.div
+              className="fixed inset-0 bg-black/30 z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+            />
+            {/* Sidebar */}
+            <motion.aside
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 20 }}
+              className="fixed inset-y-0 right-0 w-80 bg-white dark:bg-gray-900 shadow-2xl p-6 z-50"
+            >
               <div className="flex items-center justify-between mb-6">
-                <span className="font-semibold text-lg">Menu</span>
-                <button onClick={()=>setOpen(false)} aria-label="Close Menu"><FaTimes /></button>
+                <span className="font-semibold text-lg text-gray-900 dark:text-gray-100">Menu</span>
+                <button onClick={() => setOpen(false)} aria-label="Close Menu" className="text-gray-900 dark:text-gray-100 mr-[60px]">
+                  <FaTimes />
+                </button>
               </div>
               <div className="flex flex-col gap-4">
                 {links.map(l => (
-                  <Link key={l.href} href={l.href} onClick={()=>setOpen(false)} className="py-2 text-base">{l.label}</Link>
+                  <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2 text-base text-gray-900 dark:text-gray-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">{l.label}</Link>
                 ))}
                 <motion.div whileHover={{ scale: 1.09, boxShadow: '0 4px 24px #f38c1740' }} whileTap={{ scale: 0.97 }}>
-                  <Link href="/contact" onClick={()=>setOpen(false)} className="mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white text-center shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">Get Quote</Link>
+                  <Link href="/contact" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white text-center shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">Get Quote</Link>
                 </motion.div>
               </div>
             </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </motion.header>

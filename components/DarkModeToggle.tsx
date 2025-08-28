@@ -25,7 +25,7 @@ export default function DarkModeToggle() {
   return (
     <button
       aria-label="Toggle Dark Mode"
-      className="fixed z-[9999] top-4 right-4 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors"
+      className="fixed z-[9999] top-4 right-4 md:right-3 md:top-4 p-2 ml-12 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg border border-gray-200 dark:border-gray-700 transition-colors"
       onClick={() => setDark((d) => !d)}
     >
       {dark ? (
