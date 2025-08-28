@@ -48,7 +48,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-white/10 z-10" />
         {/* Bottom fade to white for smooth blend */}
-        <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-b from-transparent to-white z-20 pointer-events-none" />
+  <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 bg-gradient-to-b from-transparent to-white dark:to-gray-900 z-20 pointer-events-none" />
       </div>
       <div ref={textRef} className="relative z-30 flex flex-col items-center justify-center text-center px-4 max-w-2xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg">

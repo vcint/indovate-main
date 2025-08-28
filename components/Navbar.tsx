@@ -24,21 +24,21 @@ export default function Navbar(){
 
   return (
     <motion.header
-      className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 shadow-sm' : 'bg-transparent'}`}
+  className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur bg-white/70 dark:bg-gray-900/80 shadow-sm' : 'bg-transparent'}`}
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
       <div className="container-tight flex items-center justify-between py-4">
         <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.97 }}>
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl md:text-2xl">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl md:text-2xl text-gray-900 dark:text-gray-100">
             <motion.img src="/Images/indovatelogo.png" alt="Logo" className="h-8 w-8 md:h-9 md:w-9" initial={false} animate={{ rotate: [0, 8, -8, 0] }} transition={{ repeat: 0, duration: 1.2, ease: 'easeInOut' }} />
             <span>Indovate Technologies</span>
           </Link>
         </motion.div>
-        <nav className="hidden md:flex items-center gap-8">
+  <nav className="hidden md:flex items-center gap-8">
           {links.map(l => (
-            <Link key={l.href} href={l.href} className="text-lg hover:text-brand-600 transition-colors">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="text-lg text-gray-800 dark:text-gray-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">{l.label}</Link>
           ))}
           <motion.div whileHover={{ scale: 1.09, boxShadow: '0 4px 24px #f38c1740' }} whileTap={{ scale: 0.97 }}>
             <Link href="/contact" className="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-brand-400">

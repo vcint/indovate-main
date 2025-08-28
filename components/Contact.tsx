@@ -32,7 +32,7 @@ export default function Contact(){
         transition={{ duration: 0.5, delay: 0.1 }}
       >Let’s build something great</motion.h2>
       <motion.p
-        className="text-gray-600 mt-2"
+        className="text-gray-600 dark:text-gray-300 mt-2"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.7 }}
@@ -46,10 +46,10 @@ export default function Contact(){
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <input required placeholder="Your name" className="rounded-xl border border-gray-300 px-4 py-3" />
-        <input type="email" required placeholder="Email" className="rounded-xl border border-gray-300 px-4 py-3" />
-        <input placeholder="Company" className="rounded-xl border border-gray-300 px-4 py-3 md:col-span-2" />
-        <textarea required placeholder="Project details" rows={5} className="rounded-xl border border-gray-300 px-4 py-3 md:col-span-2" />
+  <input required placeholder="Your name" className="rounded-xl border border-gray-300 px-4 py-3 bg-white text-gray-900 placeholder-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:border-gray-700" />
+  <input type="email" required placeholder="Email" className="rounded-xl border border-gray-300 px-4 py-3 bg-white text-gray-900 placeholder-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:border-gray-700" />
+  <input placeholder="Company" className="rounded-xl border border-gray-300 px-4 py-3 md:col-span-2 bg-white text-gray-900 placeholder-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:border-gray-700" />
+  <textarea required placeholder="Project details" rows={5} className="rounded-xl border border-gray-300 px-4 py-3 md:col-span-2 bg-white text-gray-900 placeholder-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:border-gray-700" />
         <div className="md:col-span-2 flex items-center gap-3">
           <motion.button
             type="submit"

@@ -30,7 +30,7 @@ export default function Testimonials() {
         {QUOTES.map(q => (
           <motion.figure
             key={q.name}
-            className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col items-start"
+            className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col items-start"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.04, boxShadow: '0 4px 24px #f38c1740' }}
@@ -38,8 +38,8 @@ export default function Testimonials() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <FaQuoteLeft className="text-brand-600" />
-            <blockquote className="mt-4 text-gray-700">{q.text}</blockquote>
-            <figcaption className="mt-4 font-medium">{q.name} <span className="text-gray-500 font-normal">{q.role}</span></figcaption>
+            <blockquote className="mt-4 text-gray-700 dark:text-gray-100">{q.text}</blockquote>
+            <figcaption className="mt-4 font-medium text-gray-900 dark:text-gray-200">{q.name} <span className="text-gray-500 dark:text-gray-400 font-normal">{q.role}</span></figcaption>
           </motion.figure>
         ))}
       </motion.div>

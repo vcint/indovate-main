@@ -26,7 +26,7 @@ export default function Process() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold">Our process</h2>
-        <p className="text-gray-600 mt-3">A simple, transparent way to ship quality.</p>
+  <p className="text-gray-600 dark:text-gray-300 mt-3">A simple, transparent way to ship quality.</p>
       </motion.div>
       <motion.ol
         className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -50,7 +50,7 @@ export default function Process() {
           >
             <s.icon className="text-3xl text-brand-600" />
             <h3 className="mt-4 font-semibold">{i+1}. {s.title}</h3>
-            <p className="text-gray-600 mt-2 text-sm">{s.desc}</p>
+            <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">{s.desc}</p>
           </motion.li>
         ))}
       </motion.ol>

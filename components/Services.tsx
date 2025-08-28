@@ -57,7 +57,7 @@ export default function Services({ featuredOnly = false }: ServicesProps) {
     <div id="services">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
-        <p className="text-gray-600 mt-3">Comprehensive IT solutions for every business need.</p>
+  <p className="text-gray-600 dark:text-gray-300 mt-3">Comprehensive IT solutions for every business need.</p>
       </div>
       <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayFeatures.map((f) => (
@@ -68,8 +68,8 @@ export default function Services({ featuredOnly = false }: ServicesProps) {
             transition={{ type: 'spring', stiffness: 200, damping: 18 }}
           >
             <f.icon className="text-3xl text-brand-600" />
-            <h3 className="mt-4 font-semibold text-lg">{f.title}</h3>
-            <p className="text-gray-600 mt-2 text-sm">{f.desc}</p>
+            <h3 className="mt-4 font-semibold text-lg text-gray-900 dark:text-gray-100">{f.title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">{f.desc}</p>
           </motion.div>
         ))}
       </div>

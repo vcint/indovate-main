@@ -71,14 +71,16 @@ export default function ClientLogos() {
               transition={{ type: 'spring', stiffness: 200, damping: 18 }}
               viewport={{ once: true, amount: 0.2 }}
             >
-              <Image
-                src={client.img}
-                alt={client.name}
-                width={120}
-                height={60}
-                className="object-contain grayscale hover:grayscale-0 transition duration-300"
-                draggable={false}
-              />
+              <div className="w-full h-full flex items-center justify-center bg-transparent dark:bg-white/90 rounded-xl transition-colors duration-300">
+                <Image
+                  src={client.img}
+                  alt={client.name}
+                  width={120}
+                  height={60}
+                  className="object-contain grayscale hover:grayscale-0 transition duration-300 dark:grayscale-0 dark:opacity-100"
+                  draggable={false}
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>

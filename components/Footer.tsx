@@ -19,14 +19,14 @@ export default function Footer(){
       <footer>
         <div className="container-tight py-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-            <p className="text-sm text-gray-600">© {new Date().getFullYear()} Indovate Technologies Pvt Ltd. All rights reserved.</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">© {new Date().getFullYear()} Indovate Technologies Pvt Ltd. All rights reserved.</p>
           </div>
           <div className="flex items-center gap-4">
             {socials.map(({ Icon, href }) => (
               <motion.a
                 key={href}
                 href={href}
-                className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
+                className="p-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200"
                 aria-label="social link"
                 target="_blank"
                 rel="noopener noreferrer"

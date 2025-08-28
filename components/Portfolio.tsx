@@ -13,7 +13,7 @@ export default function Portfolio(){
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold">Selected work</h2>
-          <p className="text-gray-600 mt-2">Hand‑picked projects that show our range.</p>
+          <p className="text-gray-600 dark:text-gray-300 mt-2">Hand‑picked projects that show our range.</p>
         </div>
         <a href="/contact" className="hidden sm:inline-block px-4 py-2 rounded-xl border border-gray-300">Work with us</a>
       </div>
