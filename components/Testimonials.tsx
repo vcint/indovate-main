@@ -2,9 +2,9 @@ import { FaQuoteLeft } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const QUOTES = [
-  { name: 'A. Sharma', role: 'Founder, RetailCo', text: 'Smooth process and a gorgeous site. Performance is top‑notch.' },
-  { name: 'R. Khan', role: 'CEO, FinLite', text: 'They delivered fast, and the SEO uplift was immediate.' },
-  { name: 'S. Iyer', role: 'Director, HealthPlus', text: 'Great communication, clean design, measurable results.' },
+  { name: 'Faizel L.', role: 'Founder, Apisec', text: 'Smooth process and a gorgeous site. Performance is top‑notch.' },
+  { name: 'Thalraj G.', role: 'MD, Artificio', text: 'They delivered fast, and the SEO uplift was immediate.' },
+  { name: 'Hamza Betraoui', role: 'Founder & CEO, Belsio', text: 'Great communication, clean design, measurable results.' },
 ];
 
 
