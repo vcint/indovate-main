@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function Footer(){
   const socials = [
     { Icon: FaFacebook, href: '#' },
-    { Icon: FaInstagram, href: '#' },
+    { Icon: FaInstagram, href: 'https://www.instagram.com/indovate_tech/' },
     { Icon: FaLinkedin, href: 'https://www.linkedin.com/company/indovate-technologies ' },
   ];
   return (
@@ -23,19 +23,25 @@ export default function Footer(){
           </div>
           <div className="flex items-center gap-4">
             {socials.map(({ Icon, href }) => (
-              <motion.a
-                key={href}
-                href={href}
-                className="p-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200"
-                aria-label="social link"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.18, backgroundColor: '#f38c1720', boxShadow: '0 4px 24px #f38c1740' }}
-                whileTap={{ scale: 0.93 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 18 }}
-              >
-                <Icon />
-              </motion.a>
+                <motion.a
+                  key={href}
+                  href={href}
+                  className="group p-2 rounded-full border border-slate-200 bg-slate-50 hover:bg-primary-50 text-slate-700 hover:text-primary-600 shadow-sm transition-all duration-200 dark:border-neutral-800 dark:bg-neutral-900/80 dark:hover:bg-primary-950 dark:text-gray-300 dark:hover:text-primary-400"
+                  aria-label="social link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                  scale: 1.12,
+                  boxShadow: '0 4px 16px #64748b22'
+                  }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                >
+                  <Icon
+                  size={20}
+                  className="transition-colors duration-200 group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                  />
+                </motion.a>
             ))}
           </div>
         </div>
